@@ -1,0 +1,114 @@
+<body class="site">
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a href="#" class="brand" aria-label="ukiyolabs home">
+        <span class="brand-mark">ukiyo</span><span class="brand-dot"></span><span class="brand-tail">labs</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#products" class="nav-link">Products</a>
+        <a href="#about" class="nav-link">About</a>
+        <button class="btn btn-ghost" id="notify-btn">Notify</button>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1 id="hero-title">Quiet essentials for everyday living</h1>
+          <p class="subhead">Two curated pieces. Japanese minimalism. First batch opening soon.</p>
+          <ul class="benefits">
+            <li><strong>Material honesty</strong> — ceramic and metal, no excess.</li>
+            <li><strong>Compact by design</strong> — small-space friendly.</li>
+            <li><strong>Fewer, better</strong> — keep what serves daily life.</li>
+          </ul>
+          <form id="signup-form" class="signup" aria-label="Join waitlist">
+            <input type="email" id="email" placeholder="you@domain.com" required />
+            <button class="btn btn-primary" id="primary-cta" type="submit">Get early access</button>
+          </form>
+          <div class="social-proof">
+            <span class="proof-number">1,234</span>
+            <span class="proof-text">people on the waitlist</span>
+          </div>
+        </div>
+
+        <figure class="hero-media">
+          <img
+            src="https://images.unsplash.com/photo-1545235617-9465d2a55698?q=80&w=1200&auto=format&fit=crop"
+            alt="Minimal still life with ceramic and wood"
+            class="hero-img" />
+        </figure>
+      </div>
+    </section>
+
+    <section id="products" class="products">
+      <div class="container">
+        <h2>Two pieces. One ethos.</h2>
+        <div class="product-grid">
+          <article class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=900&auto=format&fit=crop"
+              alt="Sumi ceramic tea set"
+              class="product-img" />
+            <div class="product-body">
+              <h3>Sumi Ceramic Tea Set</h3>
+              <p class="muted">Matte glaze. 220 ml cup. Coming soon.</p>
+              <button class="btn btn-secondary notify" data-product="Sumi Ceramic Tea Set">Notify me</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <img
+              src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=900&auto=format&fit=crop"
+              alt="Hoshi minimal desk lamp"
+              class="product-img" />
+            <div class="product-body">
+              <h3>Hoshi Minimal Desk Lamp</h3>
+              <p class="muted">Warm LED. Brass pivot. Coming soon.</p>
+              <button class="btn btn-secondary notify" data-product="Hoshi Minimal Desk Lamp">Notify me</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="about">
+      <div class="container">
+        <h2>Design intent</h2>
+        <p>ukiyolabs blends Japanese restraint with modern utility. Clear forms, useful details, calm palettes.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <small>© ukiyolabs 2025</small>
+      <div class="legal-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function trackEvent(n,d){console.log('track',n,d)}
+    document.getElementById('signup-form').addEventListener('submit',function(e){
+      e.preventDefault();
+      const email=document.getElementById('email').value.trim();
+      if(!email) return;
+      trackEvent('ukiyo_signup_submit',{email});
+      const b=this.querySelector('button'); b.textContent='Added to waitlist'; b.disabled=true;
+    });
+    document.querySelectorAll('.notify').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        trackEvent('ukiyo_product_notify_click',{product:btn.dataset.product});
+        btn.textContent='Added'; btn.disabled=true;
+      });
+    });
+    document.getElementById('notify-btn').addEventListener('click',()=>{
+      document.getElementById('email').focus();
+      trackEvent('ukiyo_cta_click',{label:'header notify'});
+    });
+  </script>
+</body>
