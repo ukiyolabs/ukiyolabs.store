@@ -1,29 +1,43 @@
-<html>
-  <head>
-    <link href="styles.css" rel="stylesheet" />
-    <title>About — ukiyolabs</title>
-  </head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — ukiyolabs</title>
 
-  <body class="site">
-    <header class="site-header" role="banner">
-      <div class="container header-inner">
-        <a href="index.html" class="brand" aria-label="ukiyolabs home">
-          <span class="brand-mark">ukiyo</span><span class="brand-dot"></span><span class="brand-tail">labs</span>
-        </a>
-        <nav class="nav" aria-label="Primary">
-          <a href="index.html#products" class="nav-link">Products</a>
-          <a href="about.html" class="nav-link">About</a>
-          <button class="btn btn-ghost" id="notify-btn">Notify</button>
-        </nav>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="styles.css" rel="stylesheet" />
+</head>
+
+<body class="site">
+  <header class="site-header sticky-top bg-white border-bottom">
+    <div class="container d-flex align-items-center justify-content-between py-2">
+      <a href="index.html" class="brand text-decoration-none">
+        <span class="brand-mark">ukiyo</span><span class="brand-dot"></span><span class="brand-tail">labs</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html#products" class="nav-link fw-semibold">Products</a>
+        <a href="about.html" class="nav-link fw-semibold">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main role="main" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h1 class="fw-bold">About ukiyolabs</h1>
+        <p class="text-muted lead">Calm design for modern spaces.</p>
       </div>
-    </header>
 
-    <main role="main">
-      <section class="about">
-        <div class="container">
-          <h1>About ukiyolabs</h1>
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <img src="images/about.jpg" alt="Studio workspace" class="img-fluid rounded shadow-sm">
+        </div>
+        <div class="col-md-6">
           <p>ukiyolabs was founded with a simple purpose: to bring calm, functional design into everyday life. 
-          Our products are guided by Japanese minimalism—materials are chosen for integrity, and every line has intent.</p>
+          Our products are guided by Japanese minimalism — materials are chosen for integrity, and every line has intent.</p>
 
           <p>We believe in <strong>fewer, better</strong> things. Every piece we make should feel timeless, effortless, 
           and useful to the spaces you live in daily.</p>
@@ -31,19 +45,22 @@
           <p>Each collection is produced in small batches, ensuring quality and sustainability. 
           We partner with makers who share our values of restraint and purpose.</p>
 
-          <a href="index.html" class="btn btn-secondary" style="margin-top:20px;">← Back to Home</a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer" role="contentinfo">
-      <div class="container footer-inner">
-        <small>© ukiyolabs 2025</small>
-        <div class="legal-links">
-          <a href="#">Privacy</a>
-          <a href="#">Terms</a>
+          <a href="index.html" class="btn btn-outline-dark mt-3">← Back to Home</a>
         </div>
       </div>
-    </footer>
-  </body>
+    </div>
+  </main>
+
+  <footer class="site-footer bg-light py-3 border-top">
+    <div class="container d-flex justify-content-between align-items-center">
+      <small class="text-muted">© ukiyolabs 2025</small>
+      <div class="legal-links">
+        <a href="#" class="text-muted text-decoration-none me-3">Privacy</a>
+        <a href="#" class="text-muted text-decoration-none">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
