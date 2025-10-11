@@ -16,9 +16,18 @@
   <!-- Header -->
   <header class="site-header sticky-top bg-white border-bottom">
     <div class="container d-flex align-items-center justify-content-between py-2">
-      <a href="index.html" class="brand text-decoration-none">
-        <span class="brand-mark">ukiyo</span><span class="brand-dot"></span><span class="brand-tail">labs</span>
-      </a>
+      <div class="d-flex align-items-center gap-2">
+        <!-- Added Logo -->
+        <a href="index.html">
+          <img src="logo.jpg" alt="ukiyolabs logo" style="height:40px; width:auto;">
+        </a>
+
+        <!-- Brand Name -->
+        <a href="index.html" class="brand text-decoration-none">
+          <span class="brand-mark">ukiyo</span><span class="brand-dot"></span><span class="brand-tail">labs</span>
+        </a>
+      </div>
+
       <nav class="nav">
         <a href="#products" class="nav-link fw-semibold">Products</a>
         <a href="about.html" class="nav-link fw-semibold">About</a>
@@ -129,22 +138,23 @@
     });
 
     document.querySelectorAll('.notify').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    const email = document.getElementById('email').value.trim();
-    if (!email) {
-      alert('Please enter your email above before selecting a product.');
-      document.getElementById('email').focus();
-      return;
-    }
-    trackEvent('ukiyo_product_notify_click',{product:btn.dataset.product,email});
-    btn.textContent='Added';
-    btn.disabled=true;
-  });
-});
+      btn.addEventListener('click',()=>{
+        const email = document.getElementById('email').value.trim();
+        if (!email) {
+          alert('Please enter your email above before selecting a product.');
+          document.getElementById('email').focus();
+          return;
+        }
+        trackEvent('ukiyo_product_notify_click',{product:btn.dataset.product,email});
+        btn.textContent='Added';
+        btn.disabled=true;
+      });
+    });
+
     document.getElementById('notify-btn').addEventListener('click', () => {
       document.getElementById('email').focus();
       trackEvent('ukiyo_cta_click', { label: 'header notify' });
     });
   </script>
 </body>
-</html>
+  </html>
